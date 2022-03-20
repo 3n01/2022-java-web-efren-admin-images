@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>This is the title</title>
+    <style>
+        a001{
+            width:10px;
+        }
+    </style>
 </head>
 <body>
 <h1>Administración de imagenes</h1>
@@ -12,30 +17,36 @@
 
 <table>
     <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Path</th>
-        <th>Measure1</th>
-        <th>Measure2</th>
-        <th>Image</th>
-        <th>Update Image</th>
+        <th>Nombre</th>
+        <th>M1</th>
+        <th>M2</th>
+        <th>Descripción</th>
+        <th>Año</th>
+        <th>Posición</th>
+        <th>Imagen</th>
+        <th>Cambiar imagen</th>
     </tr>
     <tr th:each="image : ${images}">
         <form th:action="@{/upload}" th:object="${image}" method="post" enctype="multipart/form-data">
-            <td>
-                <input type="text" name="id" th:value="${image.id}"/>
-            </td>
+            <input type="text" name="id" th:value="${image.id}" hidden="true"/>
+            <input type="text" name="path" th:value="${image.path}" hidden="true"/>
             <td>
                 <input type="text" name="name" th:value="${image.name}"/>
-            </td>
-            <td>
-                <input type="text" name="path" th:value="${image.path}"/>
             </td>
             <td>
                 <input type="text" name="ms1" th:value="${image.ms1}"/>
             </td>
             <td>
                 <input type="text" name="ms2" th:value="${image.ms2}"/>
+            </td>
+            <td>
+                <input type="text" name="description" th:value="${image.description}"/>
+            </td>
+            <td>
+                <input type="text" name="year" th:value="${image.year}"/>
+            </td>
+            <td>
+                <input type="text" name="position" th:value="${image.position}"/>
             </td>
             <td>
                 <img th:src="@{${image.path}}" alt="" width="100" height="100"/>

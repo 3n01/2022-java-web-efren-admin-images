@@ -19,6 +19,13 @@ public class Image {
     private String ms2;
     @Column(name = "path", nullable = false)
     private String path;
+    @Column(name = "description", nullable = false)
+    private String description;
+    @Column(name = "year", nullable = false)
+    private String year;
+    @Column(name = "position", nullable = false)
+    private String position;
+
     @Transient
     private MultipartFile file;
 
@@ -69,5 +76,29 @@ public class Image {
 
     public void setFile(MultipartFile image) {
         this.file = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 }
